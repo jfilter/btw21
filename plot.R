@@ -8,7 +8,7 @@ parties <- c('Linke', 'SPD', 'Grüne', 'CDU', 'FDP', 'AfD')
 df$party <- factor(df$party, levels = parties)
  
 # correct ordering of parties 
-df$word <- factor(df$word, levels = c("Volk", "Respekt", "Abschaffung", "Wettbewerb", "Sprache", "Innovation", "Identität", "Prozent", "Chance", "Beschäftigte", "Freiheit", "Zusammenarbeit", "Eltern", "Beispiel", "Zugang", "Welt", "Maßnahme", "Ausbau", "Politik", "Rahmen", "Demokratie", "Euro", "Kommune", "Bereich", "Arbeit", "Möglichkeit", "Zukunft", "Schule", "Familie", "Schutz", "Bund", "Sicherheit", "Leben", "Frau", "Entwicklung", "Wirtschaft", "Recht", "Bildung", "EU", "Europa", "Staat", "Gesellschaft", "Ziel", "Unternehmen", "Jahr", "Kind", "Land", "Mensch", "Deutschland"))
+df$word <- factor(df$word, levels = c("Volk", "Respekt", "Abschaffung", "Wettbewerb", "Sprache", "Innovation", "Identität", "Prozent", "Landwirtschaft", "Chance", "Beschäftigte", "Freiheit", "Zusammenarbeit", "Eltern", "Beispiel", "Zugang", "Einkommen", "Welt", "Maßnahme", "Ausbau", "Politik", "Rahmen", "Demokratie", "Euro", "Kommune", "Bereich", "Förderung", "Arbeit", "Möglichkeit", "Zukunft", "Schule", "Familie", "Schutz", "Bund", "Sicherheit", "Leben", "Frau", "Entwicklung", "Wirtschaft", "Recht", "Bildung", "EU", "Europa", "Staat", "Gesellschaft", "Ziel", "Unternehmen", "Jahr", "Kind", "Land", "Mensch", "Deutschland"))
 
 # rankings start at 1
 df$value <- df$value + 1  
@@ -29,7 +29,7 @@ ggplot(data=df, aes(x = as.numeric(party), y=word, fill=value)) +
   xlab(label = "") + ylab(label = "") + 
   theme_classic(base_size = 12, base_family = "Roboto") +
   scale_x_continuous(sec.axis = dup_axis(), breaks = 1:length(parties), labels = parties) +
-  labs(title = "Häufigste Substantive in den\nWahlprogrammen zur BTW21", subtitle = "Je dunkler das Kästchen, desto häufiger wurde das Wort genutzt. Die Nummer\nim Kästchen zeigt die Platzierung pro Partei an. So ist \"Deutschland\" das\nhäufigste Wort im Programm der CDU und das zweithäufigste für SPD, FDP\nund AfD. Bei den Grünen ist es auf Platz 3 und bei den Linken auf Platz 10.", caption = 'Nur die 20 häufigsten Substantive wurden pro Partei berücksichtigt. Analyse: @fil_ter, bereinigter Text: @fussballinguist') +
+  labs(title = "Häufigste Substantive in den\nWahlprogrammen zur BTW21", subtitle = "Je dunkler das Kästchen, desto häufiger kommt das Wort vor. Die Nummer\nim Kästchen zeigt die Platzierung pro Partei an. So ist \"Deutschland\" das\nhäufigste Wort in den Programmen von CDU, FDP und AfD, das zweithäufigste\nbei der SPD, bei den Grünen ist es auf Platz 3 und bei den Linken auf Platz 9.", caption = 'Nur die 20 häufigsten Substantive wurden pro Partei berücksichtigt. Analyse: @fil_ter, bereinigter Text: @fussballinguist') +
   theme(axis.line=element_blank(), plot.subtitle=element_text(size=9), plot.caption = element_text(size=7), plot.title = element_text(margin=margin(20,0,20,0)))
 
 ggsave('wahlprogramme_1.jpg', width = 6, height = 10)
