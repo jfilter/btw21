@@ -9,6 +9,7 @@ jupyterlab = "*"
 matplotlib = "^3.4.3"
 pandas = "^1.3.3"
 python = "^3.9"
+simplemma = "*"
 spacy = "^2"
 spacy-iwnlp = "^0.0.2"
 
